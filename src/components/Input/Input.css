@@ -1,0 +1,24 @@
+.input {
+  padding: 6px;
+  font-size: larger;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.input-number {
+  max-width: 50px;
+
+  @media screen and (max-width: 760px) {
+      max-width: 100%;
+    }
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input {
+  -moz-appearance: textfield;
+}

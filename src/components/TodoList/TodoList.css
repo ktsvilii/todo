@@ -1,0 +1,25 @@
+.list {
+  list-style: none;
+  padding: 0;
+  height: 250px;
+  overflow-y: auto;
+}
+
+.todo {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.todo:hover {
+  background-color: #f0f0f0;
+}
+
+.done {
+  background-color: #bdbdbd;
+  text-decoration: line-through;
+}

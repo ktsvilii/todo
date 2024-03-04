@@ -1,0 +1,29 @@
+.button {
+  margin-right: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+
+  @media screen and (max-width: 760px) {
+    margin-right: 0;
+  }
+}
+
+.button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.active {
+  background-color: #256028;
+}
+
+.disabled {
+  background-color: #5a5a5a;
+  cursor: not-allowed;
+}
