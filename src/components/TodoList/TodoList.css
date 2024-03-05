@@ -7,19 +7,64 @@
 
 .todo {
   cursor: pointer;
+  display: flex;
+  align-items: center;
   padding: 10px;
   margin: 5px 0;
   border: 1px solid #ddd;
   border-radius: 3px;
   background-color: #fff;
+  font-weight: bolder;
   transition: background-color 0.3s ease;
 }
 
-.todo:hover {
+.todo:hover:not(.done) {
   background-color: #f0f0f0;
 }
 
 .done {
-  background-color: #bdbdbd;
-  text-decoration: line-through;
+  background-color: #22af22;
+  color: #fff;
+}
+
+.done:hover {
+  background-color: #35d32d;
+  color: #fff;
+}
+
+.custom-checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+  width: 12px;
+  height: 12px;
+  background-color: #2e2e2e;
+  border-radius: 2px;
+  display: none;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
+  border-color: #fff;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox .checkmark {
+  display: block;
 }

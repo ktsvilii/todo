@@ -23,7 +23,7 @@ export const ActionButtons = (): JSX.Element => {
         <Button
           key={filter}
           className={classNames({
-            active: activeFilter === filter,
+            'active': activeFilter === filter,
           })}
           onClick={(): void => handleSetFilter(filter)}
           text={filter}

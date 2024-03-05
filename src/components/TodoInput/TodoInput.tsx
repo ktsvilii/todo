@@ -37,7 +37,7 @@ export const TodoInput = (): JSX.Element => {
 
       <Button
         className={classNames({
-          disabled: isBtnDisabled,
+          'disabled': isBtnDisabled,
         })}
         onClick={handleAddTodo}
         disabled={isBtnDisabled}

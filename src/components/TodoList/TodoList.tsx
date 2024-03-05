@@ -3,7 +3,7 @@ import { AppState, FILTERS, Todo, toggleTodo } from "../../store"
 import { useMemo } from "react"
 import classNames from "classnames"
 
-import './TodoList.css'
+import "./TodoList.css"
 
 export const TodoList = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -24,18 +24,27 @@ export const TodoList = (): JSX.Element => {
   }
 
   return (
-    <ul className="list">
+    <div className="list">
       {filteredTodos.map((todo: Todo) => 
-        <li
+        <div
           key={todo.id}
           onClick={(): void => handleToggleTodo(todo.id)}
-          className={classNames('todo', {
-            'done': todo.completed,
-          })}
+          className={classNames("todo", { done: todo.completed })}
         >
-          {todo.text}
-        </li>
+          <label className="custom-checkbox-container">
+            <input
+              type="checkbox"
+              id={`checkbox-${todo.id}`}
+              checked={todo.completed}
+              onChange={(): void => handleToggleTodo(todo.id)}
+            />
+            <div className="custom-checkbox">
+              <div className="checkmark"></div>
+            </div>
+            {todo.text}
+          </label>
+        </div>
       )}
-    </ul>
+    </div>
   )
 }
