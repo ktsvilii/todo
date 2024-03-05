@@ -1,5 +1,11 @@
-import React from "react"
-import { ActionButtons, TodoList, TodoInput, TodoLengthControl, Counters } from "./components"
+import React from 'react'
+import {
+  ActionButtons,
+  TodoList,
+  TodoInput,
+  TodoLengthControl,
+  Counters,
+} from './components'
 
 import './App.css'
 
@@ -9,7 +15,7 @@ const App: React.FC = () => {
       <h1>ToDo App</h1>
       <Counters />
       <TodoInput />
-      <TodoList />      
+      <TodoList />
       <div className="controls">
         <ActionButtons />
         <TodoLengthControl />

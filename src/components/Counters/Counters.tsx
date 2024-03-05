@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux"
-import { AppState, Todo } from "../../store"
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { AppState, Todo } from '../../store'
 
 import './Counters.css'
 
-export const Counters = (): JSX.Element => {
+export const Counters = (): React.JSX.Element => {
   const todos = useSelector((state: AppState) => state.todos)
 
-  const filterTodos = (completed: boolean): Todo[] =>
-    todos.filter((todo) => todo.completed === completed)
+  const filterTodos = (completed: boolean): Todo[] => todos.filter((todo) => todo.completed === completed)
 
   const completedTodos = filterTodos(true)
   const activeTodos = filterTodos(false)

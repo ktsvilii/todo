@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux"
-import { AppState, FILTERS, Todo, toggleTodo } from "../../store"
-import { useMemo } from "react"
-import classNames from "classnames"
+import React, { useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppState, FILTERS, Todo, toggleTodo } from '../../store'
+import classNames from 'classnames'
 
-import "./TodoList.css"
+import './TodoList.css'
 
-export const TodoList = (): JSX.Element => {
+export const TodoList = (): React.JSX.Element => {
   const dispatch = useDispatch()
   const todos = useSelector((state: AppState) => state.todos)
   const filter = useSelector((state: AppState) => state.filter)
@@ -25,26 +25,24 @@ export const TodoList = (): JSX.Element => {
 
   return (
     <div className="list">
-      {filteredTodos.map((todo: Todo) => 
-        <div
-          key={todo.id}
-          onClick={(): void => handleToggleTodo(todo.id)}
-          className={classNames("todo", { done: todo.completed })}
-        >
-          <label className="custom-checkbox-container">
-            <input
-              type="checkbox"
-              id={`checkbox-${todo.id}`}
-              checked={todo.completed}
-              onChange={(): void => handleToggleTodo(todo.id)}
-            />
-            <div className="custom-checkbox">
-              <div className="checkmark"></div>
-            </div>
-            {todo.text}
-          </label>
-        </div>
-      )}
+      {filteredTodos.map((todo: Todo) => <div
+        key={todo.id}
+        onClick={(): void => handleToggleTodo(todo.id)}
+        className={classNames('todo', { 'done': todo.completed })}
+      >
+        <label className="custom-checkbox-container">
+          <input
+            type="checkbox"
+            id={`checkbox-${todo.id}`}
+            checked={todo.completed}
+            onChange={(): void => handleToggleTodo(todo.id)}
+          />
+          <div className="custom-checkbox">
+            <div className="checkmark"></div>
+          </div>
+          {todo.text}
+        </label>
+      </div>)}
     </div>
   )
 }

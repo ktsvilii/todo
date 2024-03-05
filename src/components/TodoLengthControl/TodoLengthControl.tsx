@@ -1,10 +1,10 @@
-import { BaseSyntheticEvent, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { AppState, setTodoMaxLength } from "../../store"
-import { Button } from "../Button"
-import { Input } from "../Input"
+import React, { BaseSyntheticEvent, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppState, setTodoMaxLength } from '../../store'
+import { Button } from '../Button'
+import { Input } from '../Input'
 
-export const TodoLengthControl = (): JSX.Element => {
+export const TodoLengthControl = (): React.JSX.Element => {
   const maxLength = useSelector((state: AppState) => state.todoLength)
   const [todoLength, setTodoLength] = useState(maxLength)
 

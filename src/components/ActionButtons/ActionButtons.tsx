@@ -1,12 +1,12 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-import { useDispatch } from "react-redux"
-import classNames from "classnames"
-import { FILTERS, setFilter } from "../../store"
-import "./ActionButtons.css"
-import { Button } from "../Button"
+import { useDispatch } from 'react-redux'
+import classNames from 'classnames'
+import { FILTERS, setFilter } from '../../store'
+import './ActionButtons.css'
+import { Button } from '../Button'
 
-export const ActionButtons = (): JSX.Element => {
+export const ActionButtons = (): React.JSX.Element => {
   const [activeFilter, setActiveFilter] = useState<FILTERS | null>(null)
   const dispatch = useDispatch()
 
@@ -19,16 +19,14 @@ export const ActionButtons = (): JSX.Element => {
 
   return (
     <>
-      {filters.map((filter) => 
-        <Button
-          key={filter}
-          className={classNames({
-            'active': activeFilter === filter,
-          })}
-          onClick={(): void => handleSetFilter(filter)}
-          text={filter}
-        />
-      )}
+      {filters.map((filter) => <Button
+        key={filter}
+        className={classNames({
+          'active': activeFilter === filter,
+        })}
+        onClick={(): void => handleSetFilter(filter)}
+        text={filter}
+      />)}
     </>
   )
 }

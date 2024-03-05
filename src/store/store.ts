@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { ACTIONS } from './actions'
+import { TodoActions } from './actions'
 import { AppState, FILTERS } from './types'
 
 interface Payload {
@@ -15,45 +15,55 @@ interface Action {
 }
 
 const initialState: AppState = {
-  todos: [],
-  filter: FILTERS.ALL,
-  todoLength: 20,
+  'todos': [],
+  'filter': FILTERS.ALL,
+  'todoLength': 20,
 }
 
 const todoReducer = (state = initialState, action: Action): AppState => {
   switch (action.type) {
-    case ACTIONS.ADD_TODO:
+    case TodoActions.ADD_TODO: {
       return {
         ...state,
-        todos: [...state.todos, { id: state.todos.length + 1, text: action.payload.text, completed: false }],
+        'todos': [
+          ...state.todos,
+          {
+            'id': state.todos.length + 1,
+            'text': action.payload.text,
+            'completed': false,
+          },
+        ],
       }
-      
-    case ACTIONS.TOGGLE_TODO:
-      return {
-        ...state,
-        todos: state.todos.map((todo) =>
-          todo.id === action.payload.id ? { ...todo, completed: !todo.completed } : todo
-        ),
-      }
+    }
 
-    case ACTIONS.SET_FILTER:
+    case TodoActions.TOGGLE_TODO: {
       return {
         ...state,
-        filter: action.payload.filter,
+        'todos': state.todos.map((todo) => todo.id === action.payload.id ? { ...todo, 'completed': !todo.completed } : todo),
       }
+    }
 
-    case ACTIONS.SET_TODO_LENGTH:
+    case TodoActions.SET_FILTER: {
       return {
         ...state,
-        todoLength: action.payload.todoLength,
+        'filter': action.payload.filter,
       }
-    default:
+    }
+
+    case TodoActions.SET_TODO_LENGTH: {
+      return {
+        ...state,
+        'todoLength': action.payload.todoLength,
+      }
+    }
+    default: {
       return state
+    }
   }
 }
 
 const store = configureStore({
-  reducer: todoReducer,
+  'reducer': todoReducer,
 })
 
 export default store

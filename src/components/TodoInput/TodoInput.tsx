@@ -1,17 +1,17 @@
-import { BaseSyntheticEvent, useState } from "react"
-import { AppState, addTodo } from "../../store"
-import { useDispatch, useSelector } from "react-redux"
+import React, { BaseSyntheticEvent, useState } from 'react'
+import { AppState, addTodo } from '../../store'
+import { useDispatch, useSelector } from 'react-redux'
 
-import classNames from "classnames"
-import { Button } from "../Button"
-import { Input } from "../Input"
+import classNames from 'classnames'
+import { Button } from '../Button'
+import { Input } from '../Input'
 
-import "./TodoInput.css"
+import './TodoInput.css'
 
-export const TodoInput = (): JSX.Element => {
+export const TodoInput = (): React.JSX.Element => {
   const maxLength = useSelector((state: AppState) => state.todoLength)
-  
-  const [inputValue, setInputValue] = useState("")
+
+  const [inputValue, setInputValue] = useState('')
 
   const isBtnDisabled = !inputValue || inputValue.length > maxLength
 
@@ -19,7 +19,7 @@ export const TodoInput = (): JSX.Element => {
 
   const handleAddTodo = (): void => {
     dispatch(addTodo(inputValue))
-    setInputValue("")
+    setInputValue('')
   }
 
   const handleChange = (e: BaseSyntheticEvent): void => {
@@ -42,7 +42,7 @@ export const TodoInput = (): JSX.Element => {
         onClick={handleAddTodo}
         disabled={isBtnDisabled}
         text={'TODO!'}
-      />        
+      />
     </div>
   )
 }
